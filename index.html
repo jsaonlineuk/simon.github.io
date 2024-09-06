@@ -26,6 +26,19 @@
             background-size: cover;
             filter: blur(10px);
             z-index: -1; /* Place it behind everything else */
+            /* Darken the background image */
+            filter: blur(10px) brightness(50%);
+        }
+
+        /* Overlay to darken and color the background */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+            z-index: -1; /* Place it behind the content */
         }
 
         /* Styling the main content */
@@ -43,12 +56,16 @@
             width: auto;
             height: auto;
             object-fit: contain;
+            position: relative; /* Ensure it sits above the overlay */
+            z-index: 1;
         }
     </style>
 </head>
 <body>
     <!-- Background image with blur effect -->
     <div class="background"></div>
+    <!-- Dark overlay -->
+    <div class="overlay"></div>
     
     <!-- Main content with clear image -->
     <div class="content">
